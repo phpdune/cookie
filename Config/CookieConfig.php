@@ -18,13 +18,13 @@ class CookieConfig
     /**
      * Cookie configuration
      *
-     * @var array
+     * @var array<string, string|bool>
      */
     private array $config;
     /**
      * set the session configuration
-     * 
-     * @param array $configs<mixed>
+     *
+     * @param array<string, string|bool> $configs
      */
     public function __construct(array $configs = [])
     {
@@ -32,9 +32,9 @@ class CookieConfig
     }
     /**
      * get the session configuration
-     * 
+     *
      * @param string $key
-     * 
+     *
      * @return mixed
      */
     public function get(string $key): mixed
@@ -45,6 +45,6 @@ class CookieConfig
         if (function_exists("config")) {
             return config("cookie." . $key);
         }
-        throw new \Exception("Cannot retrieve cookie config",500);
+        throw new \Exception("Cannot retrieve cookie config", 500);
     }
 }
